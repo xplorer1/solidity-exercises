@@ -8,7 +8,12 @@ contract Unchecked {
            reverting and return underflow value.
     */
 
-    function getNumber(uint256 x) public pure returns (uint256) {
-        return x - 100;
+    function getNumber(int256 x) public pure returns (int256) {
+        int256 result = 0;
+        unchecked {
+            result = x - 100;   
+        }
+
+        return result;
     }
 }
